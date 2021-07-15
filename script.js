@@ -125,7 +125,12 @@ const calculator = new Calculator(previousOperandTextElement,
 
 
     operationButtons.forEach(button => {
+
+        
         button.addEventListener('click', () => {
+            if(calculator.currentOperand === '' && calculator.previousOperand !== ''){
+                calculator.operation = button.innerText
+            }
            calculator.chooseOperation(button.innerText) 
            calculator.updateDisplay()
         })
